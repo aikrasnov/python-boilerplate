@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+black = "*"
+isort = "*"
+pytest-cov = "*"
+pre-commit = "*"
+requests-mock = "*"
+
+
+[packages]
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+lint = "bash ./scripts/lint.sh"
+tests = "python -m pytest tests"
+coverage = "python -m pytest --cov --cov-report term-missing --cov-fail-under=100"
+hooks = "pre-commit install -t pre-commit"
+
+[pipenv]
+allow_prereleases = true
